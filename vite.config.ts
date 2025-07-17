@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import VitePluginErrorOverlay from "vite-plugin-error-overlay";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,7 +10,7 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  base: '/',
+  base: 'madhusudhan-5.github.io', // ✅ since repo is username.github.io
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -19,9 +18,9 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-  root: path.resolve(__dirname, "client"),
+  root: path.resolve(__dirname, "client"), // ✅ keep root
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"), // ✅ just dist
     emptyOutDir: true,
   },
   server: {
