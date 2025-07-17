@@ -8,7 +8,7 @@ export const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
   // Replace this with your actual Google Form URL
-  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=sf_link";
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeKxcF2ASOlpuCeDpKCzYIlVKZtcJ-vwZQE2zD8fvsWAhQ7IA/viewform";
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -132,11 +132,11 @@ export const ContactSection = () => {
                 Contact Me via Form
               </Button>
 
-              <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              {/* <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   <strong>To set up your form:</strong> Create a Google Form and replace the URL in the code with your form's link.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

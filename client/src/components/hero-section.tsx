@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
-import profilePic from './assets/images/madhusudhan.jpg';
+import profilePic from '@/assets/images/madhusudhan.jpg';
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -39,7 +39,7 @@ export const HeroSection = () => {
               <span className="text-gradient font-semibold">Full Stack Application Developer</span>
             </div>
             <p className={`text-lg text-gray-600 dark:text-gray-300 mb-8 slide-in-left ${isVisible ? 'visible' : ''} max-w-2xl`} style={{transitionDelay: '0.3s'}}>
-              I craft responsive websites and applications where technologies meet creativity. Specializing in web development, product design for SaaS, and AI integration with 5+ years of experience.
+              I craft responsive applications and websites where technologies meet creativity. Specializing in web development, product design for SaaS, and AI integration with 5+ years of experience.
             </p>
             <div className={`flex flex-col sm:flex-row gap-4 slide-in-left ${isVisible ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}}>
               <button

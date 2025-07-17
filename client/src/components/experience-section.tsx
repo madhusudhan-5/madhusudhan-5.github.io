@@ -23,9 +23,22 @@ export const ExperienceSection = () => {
 
   const experiences = [
     {
+      title: "Team Leader",
+      company: "i-exceed technology solutions private limited",
+      period: "April 2025 - Present",
+      location: "Bangalore, India",
+      borderColor: "border-primary",
+      companyColor: "text-accent",
+      description: [
+        "Directed cross-functional teams in resolving critical production issues and conducting in-depth root cause analyses, contributing to the stability and reliability of banking systems.",
+        "Championed architectural design for application scalability and ensured rigorous compliance with banking security standards and regulatory frameworks, guaranteeing long-term solution viability."
+      ],
+      technologies: ["Team Management", "Application System Design", "Business Techno Functional Analysis", "React JS", "Python", "Django"]
+    },
+    {
       title: "Senior Software Engineer",
       company: "i-exceed technology solutions private limited",
-      period: "April 2024 - Present",
+      period: "April 2024 - April 2025",
       location: "Bangalore, India",
       borderColor: "border-primary",
       companyColor: "text-primary",
@@ -50,7 +63,7 @@ export const ExperienceSection = () => {
         "Developed BIRT reports using Java, Eclipse, and SQL Server",
         "Provided product-level support and debugging for Appzillon IDE"
       ],
-      technologies: ["JavaScript", "Java", "SQL", "BIRT Reports"]
+      technologies: ["JavaScript", "Python", "Django", "Java", "SQL", "BIRT Reports"]
     },
     {
       title: "Software Developer",
@@ -96,7 +109,7 @@ export const ExperienceSection = () => {
             Experience
           </h2>
           <p className={`text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto fade-in ${isVisible ? 'visible' : ''}`}>
-            My journey in software development and team leadership
+            My journey in software development, design and team leadership
           </p>
         </div>
 

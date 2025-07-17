@@ -22,12 +22,12 @@ export const AboutSection = () => {
   }, []);
 
   const skills = [
-    { name: "React JS & JavaScript", level: 90 },
-    { name: "Python & Django", level: 85 },
+    { name: "React JS & JavaScript", level: 80 },
+    { name: "Python & Django", level: 80 },
     { name: "AWS & Cloud", level: 75 },
     { name: "UI/UX Design", level: 80 },
-    { name: "Team Management", level: 85 },
-    { name: "AI Integration", level: 70 },
+    { name: "Team Management", level: 90 },
+    { name: "AI Integration & Automation", level: 60 },
   ];
 
   return (
@@ -42,7 +42,7 @@ export const AboutSection = () => {
             About Me
           </h2>
           <p className={`text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto fade-in ${isVisible ? 'visible' : ''}`}>
-            Passionate about creating digital solutions that bridge technology and creativity
+            Passionate about creating cutting edge digital solutions that bridges technology and creativity 
           </p>
         </div>
 
@@ -52,15 +52,15 @@ export const AboutSection = () => {
               Full Stack Developer & Team Lead
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              With 3+ years of experience in software development, I currently lead a team at a finance solutions company, 
-              focusing on creating robust banking applications for UAE markets including National Bank of Fujairah and First Abu Dhabi Bank.
+              With 5+ years of experience in software development and design, I currently lead a team at a fintech solutions company, 
+              focusing on creating robust banking applications for EMEA regions.
             </p>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               As a freelancer, I specialize in developing and designing websites, applications, and providing architectural 
-              solutions for SaaS products. I'm passionate about integrating AI technologies to create innovative solutions.
+              solutions for SaaS products. I'm passionate about integrating AI technologies and automating tasks to create innovative solutions.
             </p>
             <div className="flex flex-wrap gap-2 mb-6">
-              {["React JS", "Python", "Django", "Fast API", "JavaScript", "AWS", "Team Leadership"].map((tech) => (
+              {["React JS", "Python", "Django", "Fast API", "JavaScript", "AWS"].map((tech) => (
                 <span
                   key={tech}
                   className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
