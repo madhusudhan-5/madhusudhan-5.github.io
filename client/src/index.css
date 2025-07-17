@@ -49,12 +49,24 @@
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(214, 32%, 91%);
   }
+
+  .dark * {
+    border-color: hsl(217, 32%, 17%);
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(222, 84%, 4.9%);
     font-family: 'Inter', sans-serif;
   }
+
+  .dark body {
+    background-color: hsl(222, 47%, 11%);
+    color: hsl(210, 40%, 98%);
+  }
+
   html {
     scroll-behavior: smooth;
   }
@@ -64,73 +76,80 @@
   .font-space {
     font-family: 'Space Grotesk', sans-serif;
   }
-  
+
   .text-gradient {
     background: linear-gradient(135deg, hsl(262, 83%, 58%) 0%, hsl(187, 95%, 43%) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .gradient-bg {
     background: linear-gradient(135deg, hsl(231, 48%, 48%) 0%, hsl(261, 44%, 51%) 100%);
   }
-  
+
   .dark-gradient {
     background: linear-gradient(135deg, hsl(222, 47%, 11%) 0%, hsl(217, 32%, 17%) 100%);
   }
-  
+
   .fade-in {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  
+
   .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .slide-in-left {
     opacity: 0;
     transform: translateX(-50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  
+
   .slide-in-left.visible {
     opacity: 1;
     transform: translateX(0);
   }
-  
+
   .slide-in-right {
     opacity: 0;
     transform: translateX(50px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
-  
+
   .slide-in-right.visible {
     opacity: 1;
     transform: translateX(0);
   }
-  
+
   .floating {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
   }
-  
+
   .skill-bar {
     background: linear-gradient(90deg, hsl(262, 83%, 58%) 0%, hsl(187, 95%, 43%) 100%);
     transition: width 2s ease-in-out;
   }
-  
+
   .theme-transition {
     transition: all 0.3s ease;
   }
-  
+
   .backdrop-blur-custom {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

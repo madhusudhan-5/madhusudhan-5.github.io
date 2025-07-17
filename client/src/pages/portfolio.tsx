@@ -55,7 +55,7 @@ export default function Portfolio() {
               </a>
             </div>
             <div className="border-t border-gray-800 pt-8">
-              <p className="text-gray-400">&copy; 2024 Madhusudhan M. All rights reserved.</p>
+              <p className="text-gray-400">&copy; 2020 Madhusudhan M. All rights reserved.</p>
             </div>
           </div>
         </div>

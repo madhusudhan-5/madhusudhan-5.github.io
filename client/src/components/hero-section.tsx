@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import profilePic from './assets/images/madhusudhan.jpg';
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,11 +35,11 @@ export const HeroSection = () => {
               Madhusudhan M
             </h1>
             <div className={`text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-6 slide-in-left ${isVisible ? 'visible' : ''}`} style={{transitionDelay: '0.2s'}}>
-              {/* <span className="text-gradient font-semibold">Team Lead</span> at Finance Solutions &{" "} */}
+              <span className="text-gradient font-semibold">Team Lead</span> at Fintech Solutions &{" "}
               <span className="text-gradient font-semibold">Full Stack Application Developer</span>
             </div>
             <p className={`text-lg text-gray-600 dark:text-gray-300 mb-8 slide-in-left ${isVisible ? 'visible' : ''} max-w-2xl`} style={{transitionDelay: '0.3s'}}>
-              I craft responsive websites and applications where technologies meet creativity. Specializing in web development, product design for SaaS, and AI integration with 3+ years of experience.
+              I craft responsive websites and applications where technologies meet creativity. Specializing in web development, product design for SaaS, and AI integration with 5+ years of experience.
             </p>
             <div className={`flex flex-col sm:flex-row gap-4 slide-in-left ${isVisible ? 'visible' : ''}`} style={{transitionDelay: '0.4s'}}>
               <button
@@ -90,7 +91,7 @@ export const HeroSection = () => {
             <div className="relative floating">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl">
                 <img
-                  src="/attached_assets/image_1752346295675.png"
+                  src={profilePic}
                   alt="Madhusudhan M - Professional Developer"
                   className="w-full h-full object-cover"
                 />

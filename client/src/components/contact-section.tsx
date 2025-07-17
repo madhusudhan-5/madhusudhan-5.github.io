@@ -1,22 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
-
+  // Replace this with your actual Google Form URL
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?usp=sf_link";
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -34,48 +26,9 @@ export const ContactSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Google Form submission URL (you'll need to replace this with your actual Google Form URL)
-      const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/formResponse';
-      
-      // Create form data for Google Forms
-      const formDataToSubmit = new FormData();
-      formDataToSubmit.append('entry.XXXXXX', formData.name); // Replace with actual entry ID
-      formDataToSubmit.append('entry.XXXXXX', formData.email); // Replace with actual entry ID
-      formDataToSubmit.append('entry.XXXXXX', formData.phone); // Replace with actual entry ID
-      formDataToSubmit.append('entry.XXXXXX', formData.message); // Replace with actual entry ID
-
-      // Submit to Google Form
-      await fetch(googleFormUrl, {
-        method: 'POST',
-        body: formDataToSubmit,
-        mode: 'no-cors'
-      });
-      
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    } catch (error) {
-      toast({
-        title: "Error sending message",
-        description: "Please try again or contact me directly via email.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleContactClick = () => {
+    // Open Google Form in a new tab
+    window.open(GOOGLE_FORM_URL, '_blank');
   };
 
   return (
@@ -164,79 +117,26 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Contact Button */}
           <div className={`fade-in ${isVisible ? 'visible' : ''}`}>
-            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8">
+            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 text-center">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Name
-                  </label>
-                  <Input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full"
-                  />
-                </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
+                Ready to discuss your project? Click the button below to fill out a contact form and I'll get back to you soon.
+              </p>
+              <Button
+                onClick={handleContactClick}
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg font-medium inline-flex items-center gap-2"
+              >
+                <ExternalLink className="w-5 h-5" />
+                Contact Me via Form
+              </Button>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email
-                  </label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Phone
-                  </label>
-                  <Input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={4}
-                    className="w-full"
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-primary hover:bg-primary/90 text-white"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
+              <div className="mt-8 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <strong>To set up your form:</strong> Create a Google Form and replace the URL in the code with your form's link.
+                </p>
+              </div>
             </div>
           </div>
         </div>

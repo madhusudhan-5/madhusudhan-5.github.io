@@ -1,17 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import VitePluginErrorOverlay from "vite-plugin-error-overlay";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
-  plugins: [
-    react(),
-  ],
-  base: '/',
+  plugins: [react()],
+  base: '/', // ✅ Correct for user.github.io
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -21,7 +18,7 @@ export default defineConfig({
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist"), // ✅ Build directly to dist
     emptyOutDir: true,
   },
   server: {
