@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 dist/
 node_modules/
+=======
+node_modules/
+dist/
+>>>>>>> b202dd24a056b75ca8084e567ddcf7b6ba2db099
